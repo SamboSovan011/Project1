@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="description" content="Writing Speed test">
+  <meta name="keywords" content="test speed, writing test speed, writing speed">
+  <meta name="author" content="Sambo, Kak">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Finger Typer Test</title>
+  <link rel="icon" type="image/ico" href="icons/icon.png">
+  <link rel="stylesheet" type="text/css" href="project.css">
+</head>
+<body>
+  <div id="header">
+    <p>Finger Typer Test</p>
+  </div>
+  <p id="p1" >ASEAN is a 21st century new developing -style community with high consistency which considerably helps elaborating the countries that face such economic problems, unstable security systems, life-threatening terrorism and lack of human resources due to the lack of educational technology systems. Fundamentally, Cambodia is one of those that really need assistance from local countries to help young Cambodian teenagers figuratively find their ways through out to their future as well as to benefit the country’s improvement. Base on ASEAN’s new developing-style, is Cambodian youth’s future within reach or is it still the same?</p>
+  <div class ="InTi">
+    Words Count: 
+  	<div id = "index">0</div>
+  	Time: 
+  	<div id = "output">0:00:00:0</div>
+  </div>
+  <div class="InTi">
+    Mistake:
+    <div id = "mistake">0</div>
+  </div>
+	<p id = "words" style="display: none">ASEAN ;is ;a ;21st ;century ;new ;developing ;-style ;community ;with ;high ;consistency ;which ;considerably ;helps ;elaborating ;the ;countries ;that ;face ;such ;economic ;problems, ;unstable ;security ;systems, ;life-threatening ;terrorism ;and ;lack ;of ;human ;resources ;due ;to ;the ;lack ;of ;educational ;technology ;systems. ;Fundamentally, ;Cambodia ;is ;one ;of ;those ;that ;really ;need ;assistance ;from ;local ;countries ;to ;help ;young ;Cambodian ;teenagers ;figuratively ;find ;their ;ways ;through ;out ;to ;their ;future ;as ;well ;as ;to ;benefit ;the ;country's ;improvement. ;Base ;on ;ASEAN's ;new ;developing-style, ;is ;Cambodian ;youth's ;future ;within ;reach ;or ;is ;it ;still ;the ;same?</p>
+  <div id="p2">
+    <div id = "nextword">Next Word :</div>
+    <input type="text" id = "word_index" name="word" value="ASEAN" readonly="true">
+  </div>
+  
+	<br>
+    <input id = "text" type="text" placeholder="type here...." autocomplete="off" name="cmdline">
+    <p id = "result"></p>
+  <br>
+  <form class="InTi">
+    <fieldset>
+      <legend><b>Result</b></legend>
+      Your speed:
+      <div id = "speed">0</div>
+      Accuracy:
+      <div id = "accure">0%</div>
+    </fieldset>
+    
+  </form>
+    
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+   	$(document).ready(function(){
+   		var words = document.getElementById('words').innerHTML;
+   		var arr = new Array();
+   		arr = words.split(';');
+   		var time = 1200;
+   		var running = 1;
+		$(document).ready(function(){
+			increment();
+		});
+
+
+		function increment(){
+	 
+		if(running == 1 && time > 0){
+			 setTimeout(function(){
+	            time--;
+	            var mins = Math.floor(time/10/60);
+	            var secs = Math.floor(time/10 % 60);
+	            var tenths = time % 10;
+	            if(mins < 10){
+	                mins = "0" + mins;
+	            }
+	            if(secs < 10){
+	                secs = "0" + secs;
+	            }
+	            document.getElementById("output").innerHTML = mins + ":" + secs + ":" + tenths + "0";
+	            increment();
+	        },100)
+
+		}else if(running == 0 && time > 0){
+        result();
+    }else{
+      alert('Time up!');
+      result();
+    }
+       
+    }
+
+    
+
+    function result(){
+      var time = document.getElementById('output').innerHTML;
+      var arr_time = time.split(':');
+      var min = arr_time[0] - 0;
+      var sec = arr_time[1] - 0;
+      var pre_totaltime = min + (sec / 60);
+      var totaltime = 2 - pre_totaltime;
+      var index_count = document.getElementById('index').innerHTML;
+      var word_count = index_count - 0;
+      var mistake = document.getElementById('mistake').innerHTML;
+      var mist_count = mistake - 0;
+      var netwpm = (word_count - mist_count) / totaltime;
+      var speed = netwpm + " WPM";
+      var rightwordcount = word_count - mist_count;
+      var accura_percentage = (rightwordcount / word_count) * 100;
+      var percentage = accura_percentage + " %";
+      document.getElementById('speed').innerHTML = speed;
+      document.getElementById('accure').innerHTML = percentage;
+      $('#text').CSS({'readonly':'true'});
+
+    }
+   		
+
+   		$('#text').keyup(function(e){
+    		if(e.which == 32){
+          var tmp2 = '';
+          var tmp1 = '';
+    			var tmp = $('#index').val();
+    			var ind = tmp - 0;
+    			var value = $('#text').val();
+          var mist = document.getElementById('mistake').innerHTML;
+          var count_mist = mist - 0;
+    	
+    			if(value == arr[ind]){
+    				$('#text').val('');
+    				ind++;
+    				var tmp1 = ind + '';
+    				document.getElementById('index').value = tmp1;
+    				document.getElementById('index').innerHTML = tmp1;
+    				document.getElementById('word_index').value = arr[ind];
+    				if(document.getElementById('word_index').value == "undefined"){
+              alert('You have complete the test!');
+   						result();
+   						running = 0;
+   					}
+    			}else if(value != arr[ind]){
+    				alert('wrong');  
+            count_mist++;
+            tmp2 = count_mist + '';
+            document.getElementById('mistake').innerHTML = tmp2;
+
+    			}
+    		}
+    		
+    	});
+    	
+    	
+        		
+        });
+    	
+    
+    </script>
+
+</body>
+</html>
