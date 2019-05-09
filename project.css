@@ -1,0 +1,108 @@
+body{
+	margin :0px;
+}
+#header{
+	background-size: cover;
+	background-color: #aaa;
+	height: 100px;
+	width: 100%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	text-align: left;
+	font-size: 30px;
+	margin: 0;
+}
+#p1{
+	padding-left: 10px;
+	font-size: 20px;
+	margin-top: 10px;
+	background-color: gray;
+	border: 2px solid black;
+	margin-bottom: 10px;
+	border-radius: 7px;
+	margin-top: 20px;
+	width: 50%;
+	margin-left: 410px;
+}
+.InTi{
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 50%;
+	margin-left: 410px;
+}
+#mistake{
+	padding: 10px;
+	border: 1px solid black;
+	width: 40%;
+	margin: 3px;
+	border-radius: 5px;
+}
+#speed{
+	padding: 10px;
+	border: 1px solid black;
+	width: 20%;
+	margin: 3px;
+	border-radius: 5px;
+}
+#accure{
+	padding: 10px;
+	border: 1px solid black;
+	width: 20%;
+	margin: 3px;
+	border-radius: 5px;
+}
+#index{
+	padding: 10px;
+	border: 1px solid black;
+	width: 40%;
+	margin: 3px;
+	border-radius: 5px;
+}
+#output{
+	padding: 10px;
+	border: 1px solid black;
+	width: 40%;
+	margin: 3px;
+	border-radius: 5px;
+}
+#p2{
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 50%;
+	margin-left: 410px;
+}
+#word_index{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+	font-size: 18px;
+	width: 40%;
+	border:2px solid #aaa;
+	outline: none;
+	padding:5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+#nextword{
+
+}
+#text{
+	margin-top: 0px;
+	margin-bottom: 10px;
+	font-size: 18px;
+	width: 30%;
+	border:2px solid #aaa;
+	outline: none;
+	padding:8px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	width: 50%;
+	margin-left: 410px;
+}
